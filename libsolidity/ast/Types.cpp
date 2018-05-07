@@ -1070,9 +1070,14 @@ TypePointer RationalNumberType::binaryOperatorResult(Token::Value _operator, Typ
 			{
 				uint32_t exponent = other.m_value.numerator().convert_to<uint32_t>();
 				if (exponent > mostSignificantBit(mp::abs(m_value.numerator())))
-					value = 0;
+					value = m_value.numerator() < 0 ? -1 : 0;
 				else
-					value = rational(m_value.numerator() / mp::pow(bigint(2), exponent), 1);
+				{
+					if (m_value.numerator() < 0)
+						value = rational(-(mp::abs(m_value.numerator()) - 1) / mp::pow(bigint(2), exponent) - bigint(1), 1);
+					else
+						value = rational(m_value.numerator() / mp::pow(bigint(2), exponent), 1);
+				}
 			}
 			break;
 		}

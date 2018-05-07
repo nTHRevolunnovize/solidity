@@ -1,6 +1,7 @@
 ### 0.5.0 (unreleased)
 
 Breaking Changes:
+ * General: Signed right shift uses proper arithmetic shift, i.e. rounding towards negative infinity. Warning: this may silently change the semantics of existing code!
  * Type Checker: Disallow arithmetic operations for Boolean variables.
 
 Features:
