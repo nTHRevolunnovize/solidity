@@ -216,7 +216,7 @@ static char const* erc20Code = R"DELIMITER(
 
       ;; ----------------------------------------------------------------------
       ;; Getter for the name of the token.
-      ;; @abi name() constant returns (string)
+      ;; @abi name() view returns (string)
       ;; @return The token name as a string.
 
       (function get-name
@@ -224,7 +224,7 @@ static char const* erc20Code = R"DELIMITER(
 
       ;; ----------------------------------------------------------------------
       ;; Getter for the symbol of the token.
-      ;; @abi symbol() constant returns (string)
+      ;; @abi symbol() view returns (string)
       ;; @return The token symbol as a string.
 
       (function get-symbol
@@ -232,7 +232,7 @@ static char const* erc20Code = R"DELIMITER(
 
       ;; ----------------------------------------------------------------------
       ;; Getter for the number of decimals assigned to the token.
-      ;; @abi decimals() constant returns (uint256)
+      ;; @abi decimals() view returns (uint256)
       ;; @return The token decimals.
 
       (function get-decimals
@@ -240,7 +240,7 @@ static char const* erc20Code = R"DELIMITER(
 
       ;; ----------------------------------------------------------------------
       ;; Getter for the total token supply.
-      ;; @abi totalSupply() constant returns (uint256)
+      ;; @abi totalSupply() view returns (uint256)
       ;; @return The token supply.
 
       (function get-total-supply
@@ -248,7 +248,7 @@ static char const* erc20Code = R"DELIMITER(
 
       ;; ----------------------------------------------------------------------
       ;; Returns the account balance of another account.
-      ;; @abi balanceOf(address) constant returns (uint256)
+      ;; @abi balanceOf(address) view returns (uint256)
       ;; @param owner The address of the account's owner.
       ;; @return The account balance.
 
@@ -366,7 +366,7 @@ static char const* erc20Code = R"DELIMITER(
       ;; ----------------------------------------------------------------------
       ;; Returns the amount which _spender is still allowed to withdraw
       ;;   from _owner.
-      ;; @abi allowance(address,address) constant returns (uint256)
+      ;; @abi allowance(address,address) view returns (uint256)
       ;; @param owner The owning account.
       ;; @param spender The withdrawing account.
       ;; @return The allowed amount remaining.
