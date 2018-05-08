@@ -2,6 +2,7 @@
 
 Breaking Changes:
  * Type Checker: Disallow arithmetic operations for Boolean variables.
+ * Remove ``constant`` as function state mutability modifer.
 
 Features:
 
