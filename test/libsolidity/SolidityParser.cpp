@@ -944,6 +944,8 @@ BOOST_AUTO_TEST_CASE(keyword_is_reserved)
 		"catch",
 		"const",
 		"constructor",
+		"copy",
+		"copyof",
 		"default",
 		"define",
 		"fallback",

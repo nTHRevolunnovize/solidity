@@ -228,6 +228,8 @@ namespace solidity
 	K(Catch, "catch", 0)                                               \
 	K(Const, "const", 0)                                               \
 	K(Constructor, "constructor", 0)                                   \
+	K(Copy, "copy", 0)                                                 \
+	K(CopyOf, "copyof", 0)                                             \
 	K(Default, "default", 0)                                           \
 	K(Define, "define", 0)                                             \
 	K(Fallback, "fallback", 0)                                         \
