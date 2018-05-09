@@ -4,8 +4,8 @@ Breaking Changes:
  * Type Checker: Disallow arithmetic operations for Boolean variables.
 
 Features:
- * Adds new reserved keywords: ``alias``, ``apply``, ``auto``, ``const``, ``constructor``, ``copy``, ``copyof``, ``define``,
-   ``fallback``, ``immutable``, ``implements``, ``macro``, ``mutable``, ``override``, ``promise``, ``reference``, ``sealed``,
+ * Adds new reserved keywords: ``alias``, ``apply``, ``auto``, ``const``, ``copy``, ``copyof``, ``define``, ``fallback``,
+   ``immutable``, ``implements``, ``macro``, ``mutable``, ``override``, ``promise``, ``reference``, ``sealed``,
    ``sizeof``, ``supports``, ``topic``, ``typedef`` and ``unchecked``.
 
 Bugfixes:

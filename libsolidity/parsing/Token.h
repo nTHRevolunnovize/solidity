@@ -227,7 +227,6 @@ namespace solidity
 	K(Case, "case", 0)                                                 \
 	K(Catch, "catch", 0)                                               \
 	K(Const, "const", 0)                                               \
-	K(Constructor, "constructor", 0)                                   \
 	K(Copy, "copy", 0)                                                 \
 	K(CopyOf, "copyof", 0)                                             \
 	K(Default, "default", 0)                                           \

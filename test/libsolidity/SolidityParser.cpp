@@ -943,7 +943,6 @@ BOOST_AUTO_TEST_CASE(keyword_is_reserved)
 		"case",
 		"catch",
 		"const",
-		"constructor",
 		"copy",
 		"copyof",
 		"default",
