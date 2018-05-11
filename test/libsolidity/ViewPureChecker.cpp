@@ -97,8 +97,9 @@ BOOST_AUTO_TEST_CASE(call_internal_functions_fail)
 
 BOOST_AUTO_TEST_CASE(write_storage_fail)
 {
-	CHECK_WARNING(
+	CHECK_ERROR(
 		"contract C{ uint x; function f() view public { x = 2; } }",
+		TypeError,
 		"Function declared as view, but this expression (potentially) modifies the state and thus requires non-payable (the default) or payable."
 	);
 }
@@ -161,16 +162,6 @@ BOOST_AUTO_TEST_CASE(environment_access)
 			"Function state mutability can be restricted to pure",
 			"\"block.blockhash()\" has been deprecated in favor of \"blockhash()\""
 	}));
-}
-
-BOOST_AUTO_TEST_CASE(view_error_for_050)
-{
-	CHECK_ERROR(
-		"pragma experimental \"v0.5.0\"; contract C { uint x; function f() view public { x = 2; } }",
-		TypeError,
-		"Function declared as view, but this expression (potentially) modifies the state and thus requires non-payable (the default) or payable."
-	);
-
 }
 
 BOOST_AUTO_TEST_CASE(modifiers)

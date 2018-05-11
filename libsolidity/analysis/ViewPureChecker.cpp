@@ -116,31 +116,23 @@ private:
 
 bool ViewPureChecker::check()
 {
-	// The bool means "enforce view with errors".
-	map<ContractDefinition const*, bool> contracts;
+	vector<ContractDefinition const*> contracts;
 
 	for (auto const& node: m_ast)
 	{
 		SourceUnit const* source = dynamic_cast<SourceUnit const*>(node.get());
 		solAssert(source, "");
-		bool enforceView = source->annotation().experimentalFeatures.count(ExperimentalFeature::V050);
-		for (ContractDefinition const* c: source->filteredNodes<ContractDefinition>(source->nodes()))
-			contracts[c] = enforceView;
+		auto const& sourceContracts = source->filteredNodes<ContractDefinition>(source->nodes());
+		contracts.insert(contracts.end(), sourceContracts.begin(), sourceContracts.end());
 	}
 
 	// Check modifiers first to infer their state mutability.
 	for (auto const& contract: contracts)
-	{
-		m_enforceViewWithError = contract.second;
-		for (ModifierDefinition const* mod: contract.first->functionModifiers())
+		for (ModifierDefinition const* mod: contract->functionModifiers())
 			mod->accept(*this);
-	}
 
 	for (auto const& contract: contracts)
-	{
-		m_enforceViewWithError = contract.second;
-		contract.first->accept(*this);
-	}
+		contract->accept(*this);
 
 	return !m_errors;
 }
@@ -251,13 +243,8 @@ void ViewPureChecker::reportMutability(StateMutability _mutability, SourceLocati
 			m_currentFunction->stateMutability() == StateMutability::Pure,
 			""
 		);
-		if (!m_enforceViewWithError && m_currentFunction->stateMutability() == StateMutability::View)
-			m_errorReporter.warning(_location, text);
-		else
-		{
-			m_errors = true;
-			m_errorReporter.typeError(_location, text);
-		}
+		m_errors = true;
+		m_errorReporter.typeError(_location, text);
 	}
 	if (_mutability > m_currentBestMutability)
 		m_currentBestMutability = _mutability;
