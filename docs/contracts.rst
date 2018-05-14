@@ -24,8 +24,8 @@ Creating contracts programatically on Ethereum is best done via using the JavaSc
 As of today it has a method called `web3.eth.Contract <https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#new-contract>`_
 to facilitate contract creation.
 
-When a contract is created, its constructor (a function with the same
-name as the contract) is executed once.
+When a contract is created, its constructor (a function declared with the
+``constructor`` keyword) is executed once.
 A constructor is optional. Only one constructor is allowed, and this means
 overloading is not supported.
 
@@ -473,7 +473,7 @@ The following statements are considered modifying the state:
     }
 
 .. note::
-  ``constant`` on functions is an alias to ``view``, but this is deprecated and is planned to be dropped in version 0.5.0.
+  ``constant`` on functions is an alias to ``view``, but this is deprecated and will be dropped in version 0.5.0.
 
 .. note::
   Getter methods are marked ``view``.
@@ -982,7 +982,7 @@ virtual method lookup.
 
 Constructors
 ============
-A constructor is an optional function declared with the ``constructor`` keyword which is executed upon contract creation. 
+A constructor is an optional function declared with the ``constructor`` keyword which is executed upon contract creation.
 Constructor functions can be either ``public`` or ``internal``. If there is no constructor, the contract will assume the
 default constructor: ``contructor() public {}``.
 
@@ -1030,8 +1030,9 @@ A constructor set as ``internal`` causes the contract to be marked as :ref:`abst
 Arguments for Base Constructors
 ===============================
 
-Derived contracts need to provide all arguments needed for
-the base constructors. This can be done in two ways::
+The constructors of all the base contracts will be called following the
+linearization rules explained below. If the base constructors have arguments,
+derived contracts need to specify all of them. This can be done in two ways::
 
     pragma solidity ^0.4.22;
 
@@ -1058,6 +1059,9 @@ constructor arguments of the base depend on those of the
 derived contract. Arguments have to be given either in the
 inheritance list or in modifier-style in the derived constuctor.
 Specifying arguments in both places is an error.
+
+If a derived contract doesn't specify the arguments to all of its base
+contracts' constructors, it will be abstract.
 
 .. index:: ! inheritance;multiple, ! linearization, ! C3 linearization
 
@@ -1139,7 +1143,7 @@ Example of a Function Type (a variable declaration, where the variable is of typ
 
     function(address) external returns (address) foo;
 
-Abstract contracts decouple the definition of a contract from its implementation providing better extensibility and self-documentation and 
+Abstract contracts decouple the definition of a contract from its implementation providing better extensibility and self-documentation and
 facilitating patterns like the `Template method <https://en.wikipedia.org/wiki/Template_method_pattern>`_ and removing code duplication.
 
 .. index:: ! contract;interface, ! interface contract
