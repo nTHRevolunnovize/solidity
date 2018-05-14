@@ -411,9 +411,9 @@ These keywords are reserved in Solidity. They might become part of the syntax in
 
 ``abstract``, ``after``, ``alias``, ``apply``, ``auto``, ``case``, ``catch``, ``const``, ``copy``, ``copyof``,
 ``default``, ``define``, ``fallback``, ``final``, ``immutable``, ``implements``, ``in``, ``inline``, ``let``,
-``macro``, ``match``, ``mutable``, ``null``, ``of``, ``override``, ``promise``, ``reference``, ``relocatable``,
-``sealed``, ``sizeof``, ``static``, ``supports``, ``switch``, ``topic``, ``try``, ``type``, ``typedef``,
-``typeof``, ``unchecked``.
+``macro``, ``match``, ``mutable``, ``null``, ``of``, ``override``, ``partial``, ``promise``, ``reference``,
+``relocatable``, ``sealed``, ``sizeof``, ``static``, ``supports``, ``switch``, ``topic``, ``try``, ``type``,
+``typedef``, ``typeof``, ``unchecked``.
 
 Language Grammar
 ================

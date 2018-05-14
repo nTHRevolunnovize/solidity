@@ -5,7 +5,7 @@ Breaking Changes:
 
 Features:
  * Adds new reserved keywords: ``alias``, ``apply``, ``auto``, ``const``, ``copy``, ``copyof``, ``define``, ``fallback``,
-   ``immutable``, ``implements``, ``macro``, ``mutable``, ``override``, ``promise``, ``reference``, ``sealed``,
+   ``immutable``, ``implements``, ``macro``, ``mutable``, ``override``, ``partial``, ``promise``, ``reference``, ``sealed``,
    ``sizeof``, ``supports``, ``topic``, ``typedef`` and ``unchecked``.
 
 Bugfixes:

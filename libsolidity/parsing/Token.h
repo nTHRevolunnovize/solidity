@@ -244,6 +244,7 @@ namespace solidity
 	K(NullLiteral, "null", 0)                                          \
 	K(Of, "of", 0)                                                     \
 	K(Override, "override", 0)                                         \
+	K(Partial, "partial", 0)                                           \
 	K(Promise, "promise", 0)                                           \
 	K(Reference, "reference", 0)                                       \
 	K(Relocatable, "relocatable", 0)                                   \
