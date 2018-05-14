@@ -1,6 +1,8 @@
 ### 0.5.0 (unreleased)
 
+
 Breaking Changes:
+ * Commandline interface: Require ``-`` if standard input is used as source.
  * Type Checker: Disallow arithmetic operations for Boolean variables.
 
 Features:
